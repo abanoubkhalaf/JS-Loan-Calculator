@@ -20,7 +20,7 @@ function calculateResults(){
 const principle = parseFloat(amount.value);
 const caculatedInterested = parseFloat(interest.value)  / 100;
 const caculatedPayments = parseFloat(years.value)*12;
-const perMonth = parseFloat(caculatedInterested  / 12 * principle );
+const perMonth = parseFloat(caculatedInterested  / caculatedPayments * principle );
 
 
 monthlyPayment.value =(principle / caculatedPayments + perMonth).toFixed(2)  ;
