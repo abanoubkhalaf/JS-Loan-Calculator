@@ -10,7 +10,6 @@ setTimeout(calculateResults , 2000);
 function calculateResults(){
   document.getElementById('loading').style.display = "none"
 
-
   const amount = document.getElementById('amount');
   const interest = document.getElementById('interest');
   const years = document.getElementById('years');
@@ -21,15 +20,16 @@ function calculateResults(){
 const principle = parseFloat(amount.value);
 const caculatedInterested = parseFloat(interest.value)  / 100;
 const caculatedPayments = parseFloat(years.value)*12;
+const perMonth = parseFloat(caculatedInterested  / 12 * principle );
 
-monthlyPayment.value = (principle / caculatedPayments).toFixed(2);
+
+monthlyPayment.value =(principle / caculatedPayments + perMonth).toFixed(2)  ;
 totalPayment.value = (caculatedInterested * principle + principle).toFixed(2);
 totalInterest.value = (totalPayment.value - principle).toFixed(2);
 
 
-
 if(amount.value === "" || interest.value === "" || years.value === ""){
-  showError("Plz Filled The Inputs");
+  showError("Plz Filled The Inputsff");
 
 }else{
   document.getElementById('results').style.display = 'block';
